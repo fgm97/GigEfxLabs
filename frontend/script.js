@@ -1,1 +1,1 @@
-optional JavaScript functionality
+"optional JavaScript functionality"
