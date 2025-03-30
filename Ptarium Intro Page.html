@@ -1,169 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GigEfx Labs Code - Future</title>
-	<style>
-		body {
-			background-color:rgb(98, 156, 157);
-		}
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			text-decoration: none;
-			list-style: none;
-			font-family: sans-serif;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigEfx Labs Code - Future</title>
+    <style>
+        body {
+            background-color: rgb(98, 156, 157);
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
 
-		.hero {
-			height: 100vh;
-			background: url(./Downloads/RapidForgeSolutions_.jpg);
-			background-position: center;
-			background-size: cover;
-			background-repeat: no-repeat;
-			position: relative;
-		}
+        .hero {
+            height: 100vh;
+            background: url(./Downloads/RapidForgeSolutions_.jpg) center/cover no-repeat;
+            position: relative;
+        }
 
-		nav {
-			display: flex;
-			align-items: center;
-			justify-content: space-around;
-			width: 100%;
-			padding: 10px 0;
-			margin: auto;
-			border-bottom: 2px solid #547378;
-		}
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            font-family: sans-serif;
+            border-bottom: 2px solid #547378;
+        }
 
-		.logo {
-			width: 150px;
-		}
+        .logo {
+            width: 150px;
+        }
 
-		nav ul {
-			display: flex;
-			align-items: center;
-		}
+        nav button {
+            padding: 10px 20px;
+            background: rgb(98, 156, 157);
+            border: 2px solid #fff;
+            font-size: 15px;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
 
-		nav ul li a {
-			font-size: 15px;
-			color: #fff;
-			text-transform: uppercase;
-		}
+        nav button:hover {
+            scale: .8;
+        }
 
-		nav ul li a:hover {
-			color: #fff;
-			border-bottom: 2px solid #fff;
-		}
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+        }
 
-		nav button {
-			padding: 10px 35px;
-			background: #7720;
-			border: 2px solid #772020;
-			font-size: 15px;
-			font-weight: 600;
-			color: #ff7620;
-			cursor: pointer;
-		}
+        .sidebar.open {
+            right: 0;
+            display: block;
+        }
 
-		nav button:hover {
-			scale: 0.8;
-		}
+        .sidebar ul {
+            margin-top: 50px;
+        }
 
-		.login {
-			background: transparent;
-			border: 2px solid #fff;
-			margin-right: 25px;
-		}
+        .sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
 
-		.login:hover {
-			background: #ff7720;
-			color: #878787;
-			border-color: #ff7620;
-		}
+        .sidebar ul li a {
+            color: black;
+            font-size: 18px;
+            display: block;
+        }
 
-		.content {
-			position: absolute;
-			top: 35%;
-			left: 90px;
-			color: white;
-		}
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-		h1 {
-			background: rgb(98, 156, 157);
-			color: rgb(255, 255, 255);
-			padding: 10px;
-			display: inline-block;
-		}
+        .content {
+            position: absolute;
+            top: 35%;
+            left: 90px;
+            color: white;
+        }
 
-		h2 {
-			font-size: 50px;
-			color: #fff;
-			text-transform: uppercase;
-			font-weight: 800;
-		}
+        h1, h2, h3, h4, h5, h6, h7 {
+            background: rgb(98, 156, 157);
+            color: white;
+            padding: 10px;
+            font-weight: 800;
+            display: inline-block;
+        }
 
-		p {
-			width: 35%;
-			color: #fff;
-			font-size: 18px;
-			margin-top: 10px;
-		}
+        h1 { font-size: 30px; position: absolute; right: 170px; top: 20%; }
+        h2 { font-size: 30px; position: absolute; top: -12%; left: 100px; }
+        h3 { font-size: 50px; position: absolute; right: 400px; top: -35%; }
+        h4 { font-size: 20px; position: absolute; right: 170px; top: 30%; }
+        h5 { font-size: 20px; position: absolute; right: 170px; top: 40%; }
+        h6 { font-size: 20px; position: absolute; right: 170px; top: 50%; }
+        h7 { font-size: 20px; position: absolute; right: 170px; top: 70%; }
 
-		p {
-			width: 35%;
-			color: #fff;
-			font-size: 18px;
-			margin-top: 10px;
-		}
-
-		p {
-			width: 35%;
-			color: #fff;
-			font-size: 18px;
-			margin-top: 10px;
-		}
-
-		p {
-			width: 35%;
-			color: #fff;
-			font-size: 18px;
-			margin-top: 10px;
-		}
-	</style>
+        p {
+            width: 35%;
+            color: #fff;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-	<div class="hero">
-		<nav>
-			<img src="gigfixlaboratories.png" class="logo" alt="GigEfx Laboratories Logo">
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Fees</a></li>
-				<li><a href="#">Images</a></li>
-				<li><a href="#">Help</a></li>
-			</ul>
-			<div>
-				<button class="login">Login</button>
-				<button>More</button>
-			</div>
-		</nav>
+    <div class="hero">
+        <nav>
+            <img src="gigfixlaboratories.png" class="logo" alt="GigEfx Laboratories Logo">
+            <div>
+                <button class="login">Login</button>
+                <button id="menu-button">More</button>
+            </div>
+        </nav>
 
-		<div class="content">
-			<h1>OUR SERVICES</h1>
-			<h2>ABOUT US</h2>
-			<p> At GigEfx, we believe that Africa’s greatest challenges present opportunities for transformative innovation. Rooted in a deep understanding of local needs, we develop purpose-driven solutions that align with the realities of Africa’s 1.35 billion people—80% of whom remain underserved. As a startup studio, we ideate, develop, fund, and support ventures that address hundreds of pain points through our best-in-class innovation funnels.
+        <div id="sidebar" class="sidebar">
+            <span class="close-btn" id="close-sidebar">&times;</span>
+            <ul>
+                <li><a href="#">Service 1</a></li>
+                <li><a href="#">Service 2</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
 
-			<p> Our approach is data-driven, empathetic, and collaborative, ensuring that every idea we generate is viable, desirable, and sustainable. We partner with like-minded entities, test innovations in real-world settings, and deploy solutions that can scale. By focusing on Africa’s growing middle class—expected to spend over $400 million daily—we establish a trusted supply value chain, bridging the gap between lower and higher socio-economic classes.
+        <div class="content">
+            <h1>OUR SERVICES</h1>
+            <h2>ABOUT US</h2>
+            <h3>WELCOME TO GIGEFX</h3>
+            <h4><a href="#">Rapid Forge</a></h4>
+            <h5><a href="#">2nd service offered</a></h5>
+            <h6><a href="#">3rd service offered</a></h6>
+            <h7><a href="#">4th service offered</a></h7>
+            <p>At GigEfx, we believe that Africa’s greatest challenges present opportunities for transformative innovation. Rooted in a deep understanding of local needs, we develop purpose-driven solutions that align with the realities of Africa’s 1.35 billion people—80% of whom remain underserved. As a startup studio, we ideate, develop, fund, and support ventures that address hundreds of pain points through our best-in-class innovation funnels.</p>
+            <p>Our approach is data-driven, empathetic, and collaborative, ensuring that every idea we generate is viable, desirable, and sustainable. We partner with like-minded entities, test innovations in real-world settings, and deploy solutions that can scale. By focusing on Africa’s growing middle class—expected to spend over $400 million daily—we establish a trusted supply value chain, bridging the gap between lower and higher socio-economic classes.</p>
+            <p>At the heart of GigEfx are our core values: accountability, integrity, and determination. Our innovation process is fueled by customer insights, allowing us to develop high-impact, inclusive, and cost-effective solutions.</p>
+            <p>One of our pioneering ventures, Rapid Forge Solutions, leverages AI/ML-powered on-demand 3D printing services, revolutionizing fabrication accessibility across industries. As we continue to push boundaries, our mission remains clear: to design, test, and develop revenue-generating business models that compete with the best in Africa and beyond.</p>
+        </div>
+    </div>
 
-			<p> At the heart of GigEfx are our core values: accountability, integrity, and determination. Our innovation process is fueled by customer insights, allowing us to develop high-impact, inclusive, and cost-effective solutions.
+    <script>
+        const menuButton = document.getElementById("menu-button");
+        const sidebar = document.getElementById("sidebar");
+        const closeSidebar = document.getElementById("close-sidebar");
 
-			<p> One of our pioneering ventures, Rapid Forge Solutions, leverages AI/ML-powered on-demand 3D printing services, revolutionizing fabrication accessibility across industries. As we continue to push boundaries, our mission remains clear: to design, test, and develop revenue-generating business models that compete with the best in Africa and beyond.
+        menuButton.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
 
-</p>
-</p>
-</p>
-</p>
-		</div>
-	</div>
+        closeSidebar.addEventListener("click", function () {
+            sidebar.classList.remove("open");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!sidebar.contains(event.target) && event.target !== menuButton) {
+                sidebar.classList.remove("open");
+            }
+        });
+    </script>
 </body>
 </html>
