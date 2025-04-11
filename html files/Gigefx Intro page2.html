@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigEfx Labs Code - Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: auto;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: auto;
+            background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+            animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            background-attachment: fixed;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+
+        body {
+            margin: auto;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: auto;
+            background: linear-gradient( 315deg,
+            rgba(0, 94, 255, 1) 3%,     /* Deep Blue */
+            rgba(60, 206, 180, 1) 38%,  /* Aqua Green */
+            rgba(48, 238, 126, 1) 68%,  /* Light Green */
+            rgba(0, 160, 120, 1) 98%;    /* Teal */
+
+            animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            background-attachment: fixed;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%;}
+            50% { background-position: 100% 50%;}
+            100% { background-position: 0% 50%;}
+        }
+
+
+
+        .wave {
+            background: rgb(255 255 255 / 25%);
+            border-radius: 1000% 1000% 0 0;
+            position: fixed;
+            width: 200%;
+            height: 12em;
+            animation: wave 10s -3s linear infinite;
+            transform: translate3d(0, 0, 0);
+            opacity: 0.8;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .wave:nth-of-type(2) {
+            bottom: -1.25em;
+            animation: wave 18s linear reverse infinite;
+            opacity: 0.8;
+        }
+
+        .wave:nth-of-type(3) {
+            bottom: -2.5em;
+            animation: wave 20s -1s reverse infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes wave {
+            2% { transform: translateX(1); }
+            25% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            75% { transform: translateX(-25%); }
+            100% { transform: translateX(1); }
+        }
+
+        .hero {
+            height: 100vh;
+            background: url(./Downloads/RapidForgeSolutions_.jpg) center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid #547378;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        nav button {
+            padding: 10px 20px;
+            background: rgb(114, 166, 167);
+            border: 2px solid #fff;
+            font-size: 15px;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        nav button:hover {
+            scale: .8;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .sidebar.open {
+            right: 0;
+            display: block;
+        }
+
+        .sidebar ul {
+            margin-top: 50px;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .sidebar ul li a {
+            color: black;
+            font-size: 18px;
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .content {
+            position: absolute;
+            top: 35%;
+            left: 90px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: Helvetica, sans-serif;
+        }
+
+        .sec1, .sec2, .sec3 {
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgb(98, 156, 157);
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: 'MS sans-serif', sans-serif;
+        }
+
+        .sec2 {
+            background-color: rgb(129, 176, 177);
+        }
+
+        .sec2 .projects-row {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .sec2 .projects-row p {
+            font-size: 1.8rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .sec2 h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .sec2 p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .sec2 > h1 {
+            animation: revealing;
+            animation-timeline: view(block);
+            animation-range: cover 0% cover 50%;
+            margin: 0px;
+        }
+
+        .sec3 h4 {
+            font-size: 2rem;
+        }
+
+        @keyframes revealing {
+            from {
+                color: gray;
+                margin-left: 100vw;
+                opacity: 0.5;
+            }
+            to {
+                margin: 0px;
+                opacity: 1;
+            }
+        }
+
+        .sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h4 {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .about-us {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 30px;
+            font-size: 1.3rem;
+            text-align: left;
+            line-height: 1.6;
+            font-family: 'MS sans-serif', sans-serif;
+        }
+
+        .about-column {
+            flex: 1;
+        }
+
+        .about-column p {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .about-us {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="hero">
+        <nav>
+            <img src="gigfixlaboratories.png" class="logo" alt="GigEfx Laboratories Logo">
+            <div>
+                <button class="login">Login</button>
+                <button id="menu-button">More</button>
+            </div>
+        </nav>
+
+        <div id="sidebar" class="sidebar">
+            <span class="close-btn" id="close-sidebar">&times;</span>
+            <ul>
+                <li><a href="#">Subscriptions</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Order Status</a></li>
+                <li><a href="#">BounceBack</a></li>
+                <li><a href="#">RapidForge</a></li>
+                <li><a href="#">SmartCart</a></li>
+                <li><a href="#">SmartPrint</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+
+        <h1>HELLO, WELCOME TO GIGEFX!</h1>
+    </div>
+
+    <div class="sec1">
+    <h1>ABOUT US</h1>
+    <div class="about-us">
+        <div class="about-column">
+            <p>
+                At GigEfx, we believe that Africa’s greatest challenges present opportunities for transformative innovation. Rooted in a deep understanding of local needs, we develop purpose-driven solutions that align with the realities of Africa’s 1.35 billion people—80% of whom remain underserved. As a startup studio, we ideate, develop, fund, and support ventures that address hundreds of pain points through our best-in-class innovation funnels.
+            </p>
+        </div>
+        <div class="about-column">
+            <p>
+                Our approach is data-driven, empathetic, and collaborative, ensuring that every idea we generate is viable, desirable, and sustainable. We partner with like-minded entities, test innovations in real-world settings, and deploy solutions that can scale. By focusing on Africa’s growing middle class—expected to spend over $400 million daily—we establish a trusted supply value chain, bridging the gap between lower and higher socio-economic classes.
+            </p>
+        </div>
+        <div class="about-column">
+            <p>
+                At the heart of GigEfx are our core values: accountability, integrity, and determination. Our innovation process is fueled by customer insights, allowing us to develop high-impact, inclusive, and cost-effective solutions. One of our pioneering ventures, Rapid Forge Solutions, leverages AI/ML-powered on-demand 3D printing services, revolutionizing fabrication accessibility across industries.As we continue to push boundaries, our mission remains clear: to design, test, and develop revenue-generating business models that compete with the best in Africa and beyond.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="sec2">
+    <h2>OUR PROJECTS</h2>
+    <div class="projects-row">
+        <p>BounceBack</p>
+        <p>Rapid Forge</p>
+        <p>SmartCart</p>
+        <p>SmartPrint</p>
+    </div>
+</div>
+
+<footer class="sec3">
+    <h4>CONTACT US</h4>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("reveal");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll(".sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h4").forEach(el => {
+            observer.observe(el);
+        });
+    });
+
+    const menuButton = document.getElementById("menu-button");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("close-sidebar");
+
+    menuButton.addEventListener("click", () => sidebar.classList.toggle("open"));
+    closeSidebar.addEventListener("click", () => sidebar.classList.remove("open"));
+
+    document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && event.target !== menuButton) {
+            sidebar.classList.remove("open");
+        }
+    });
+</script>
