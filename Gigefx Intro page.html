@@ -12,7 +12,7 @@
         }
 
         body {
-            background-color: rgb(98, 156, 157);
+            background-color: rgb(129, 176, 177);
             font-family: sans-serif;
         }
 
@@ -46,7 +46,7 @@
 
         nav button {
             padding: 10px 20px;
-            background: rgb(98, 156, 157);
+            background: rgb(114, 166, 167);
             border: 2px solid #fff;
             font-size: 15px;
             color: #fff;
@@ -112,7 +112,7 @@
             font-family: helvetica;
         }
 
-        .sec1, .sec2 {
+        .sec1, .sec2, .sec3 {
             width: 100%;
             min-height: 100vh;
             background-color: rgb(98, 156, 157);
@@ -128,17 +128,19 @@
 
         .sec2 {
             flex-direction: column; /* keep headings above */
+            background-color: rgb(129, 176, 177);
+
         }
 
-        .sec2 .services-row {
+        .sec2 .projects-row {
             display: flex;
             flex-direction: row;
-            gap: 30px; /* space between services */
+            gap: 30px; /* space between projects */
             flex-wrap: wrap; /* allows wrapping on smaller screens */
             justify-content: center; /* centers the row */
         }
 
-        .sec2 .services-row p {
+        .sec2 .projects-row p {
             font-size: 1.8rem;
             background-color: rgba(255, 255, 255, 0.1); /* optional styling */
             padding: 10px 20px;
@@ -157,16 +159,16 @@
 
         }
 
-        .sec2 h4 {
-            font-size: 2rem;
-        }
-
 
         .sec2 > h1 {
             animation: revealing;
             animation-timeline: view(block);
             animation-range: cover 0% cover 50%;
             margin: 0px;
+        }
+
+        .sec3 h4 {
+            font-size: 2rem;
         }
 
         @keyframes revealing {
@@ -181,7 +183,7 @@
             }
         }
 
-        .sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec2 h4 {
+        .sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h4 {
             opacity: 0;
             transform: translateY(100px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -225,6 +227,7 @@
     </style>
 </head>
 <body>
+
     <div class="hero">
         <nav>
             <img src="gigfixlaboratories.png" class="logo" alt="GigEfx Laboratories Logo">
@@ -268,8 +271,8 @@
     </div>
 
     <div class="sec2">
-        <h2>OUR SERVICES</h2>
-        <div class="services-row">
+        <h2>OUR PROJECTS</h2>
+        <div class="projects-row">
             <p>BounceBack</p>
             <p>Rapid Forge</p>
             <p>SmartCart</p>
@@ -278,7 +281,7 @@
     </div>
 
 
-    <div class="sec2">
+    <div class="sec3">
         <h4>CONTACT US</h4>
     </div>
 
@@ -293,7 +296,7 @@
                 });
             }, { threshold: 0.5 });
 
-            document.querySelectorAll(".sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec2 h4").forEach(el => {
+            document.querySelectorAll(".sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h4").forEach(el => {
                 observer.observe(el);
             });
         });
