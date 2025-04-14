@@ -12,47 +12,26 @@
         }
 
         body {
-            margin: auto;
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             overflow: auto;
-            background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+            background: linear-gradient(315deg,
+                rgba(0, 94, 255, 1) 3%,
+                rgba(60, 206, 180, 1) 38%,
+                rgba(30, 150, 90, 1) 68%,
+                rgba(0, 160, 120, 1) 98%);
             animation: gradient 15s ease infinite;
             background-size: 400% 400%;
             background-attachment: fixed;
         }
 
         @keyframes gradient {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
-
-        body {
-            margin: auto;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            overflow: auto;
-            background: linear-gradient( 315deg,
-            rgba(0, 94, 255, 1) 3%,     /* Deep Blue */
-            rgba(60, 206, 180, 1) 38%,  /* Aqua Green */
-            rgba(48, 238, 126, 1) 68%,  /* Light Green */
-            rgba(0, 160, 120, 1) 98%;    /* Teal */
-
-            animation: gradient 15s ease infinite;
-            background-size: 400% 400%;
-            background-attachment: fixed;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%;}
-            50% { background-position: 100% 50%;}
-            100% { background-position: 0% 50%;}
-        }
-
-
 
         .wave {
-            background: rgb(255 255 255 / 25%);
+            background: rgba(255, 255, 255, 0.25);
             border-radius: 1000% 1000% 0 0;
             position: fixed;
             width: 200%;
@@ -68,7 +47,6 @@
         .wave:nth-of-type(2) {
             bottom: -1.25em;
             animation: wave 18s linear reverse infinite;
-            opacity: 0.8;
         }
 
         .wave:nth-of-type(3) {
@@ -124,7 +102,7 @@
         }
 
         nav button:hover {
-            scale: .8;
+            transform: scale(0.8);
         }
 
         .sidebar {
@@ -176,15 +154,33 @@
             color: white;
         }
 
-        .hero h1 {
+        .hero h1.hero-heading {
             font-size: 4rem;
             font-family: Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align:left;
+            margin-right:90px;
         }
 
-        .sec1, .sec2, .sec3 {
+        .hero-heading span {
+          line-height: 0.2;
+          margin-bottom:0;
+        }
+
+        .hero-heading .line1 {
+          align-self: flex-start;
+        }
+
+        .hero-heading .line2 {
+        align-self: flex-start;
+        }
+
+
+        .sec1, .sec2, .sec3, .sec4 {
             width: 100%;
             min-height: 100vh;
-            background-color: rgb(98, 156, 157);
             color: white;
             text-align: center;
             display: flex;
@@ -194,8 +190,10 @@
             font-family: 'MS sans-serif', sans-serif;
         }
 
-        .sec2 {
-            background-color: rgb(129, 176, 177);
+        .sec1 h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+
         }
 
         .sec2 .projects-row {
@@ -208,7 +206,20 @@
 
         .sec2 .projects-row p {
             font-size: 1.8rem;
-            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .sec2 .bio-row {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .sec2 .bio-row p {
+            font-size: 1.2rem;
             padding: 10px 20px;
             border-radius: 8px;
         }
@@ -221,32 +232,41 @@
         .sec2 p {
             font-size: 1.3rem;
             margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
-        .sec2 > h1 {
-            animation: revealing;
-            animation-timeline: view(block);
-            animation-range: cover 0% cover 50%;
-            margin: 0px;
+        .sec3 h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        .sec3 h4 {
-            font-size: 2rem;
+        .sec3 p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
-        @keyframes revealing {
-            from {
-                color: gray;
-                margin-left: 100vw;
-                opacity: 0.5;
-            }
-            to {
-                margin: 0px;
-                opacity: 1;
-            }
+        .sec4 h4 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        .sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h4 {
+        .sec4 p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h3, .sec4 h4 {
             opacity: 0;
             transform: translateY(100px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -265,15 +285,17 @@
             font-size: 1.3rem;
             text-align: left;
             line-height: 1.6;
-            font-family: 'MS sans-serif', sans-serif;
         }
 
         .about-column {
             flex: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
         .about-column p {
-            background-color: rgba(255, 255, 255, 0.1);
             padding: 10px 20px;
             border-radius: 8px;
             margin-bottom: 15px;
@@ -289,17 +311,10 @@
 </head>
 <body>
 
-    <div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
-
     <div class="hero">
         <nav>
             <img src="gigfixlaboratories.png" class="logo" alt="GigEfx Laboratories Logo">
             <div>
-                <button class="login">Login</button>
                 <button id="menu-button">More</button>
             </div>
         </nav>
@@ -319,70 +334,103 @@
             </ul>
         </div>
 
-        <h1>HELLO, WELCOME TO GIGEFX!</h1>
+        <h1 class="hero-heading">
+          <span class= "line1">HELLO, </span><br>
+          <span class= "line2">WELCOME TO GIGEFX!</span></h1>
     </div>
 
     <div class="sec1">
-    <h1>ABOUT US</h1>
-    <div class="about-us">
-        <div class="about-column">
-            <p>
-                At GigEfx, we believe that Africa’s greatest challenges present opportunities for transformative innovation. Rooted in a deep understanding of local needs, we develop purpose-driven solutions that align with the realities of Africa’s 1.35 billion people—80% of whom remain underserved. As a startup studio, we ideate, develop, fund, and support ventures that address hundreds of pain points through our best-in-class innovation funnels.
-            </p>
-        </div>
-        <div class="about-column">
-            <p>
-                Our approach is data-driven, empathetic, and collaborative, ensuring that every idea we generate is viable, desirable, and sustainable. We partner with like-minded entities, test innovations in real-world settings, and deploy solutions that can scale. By focusing on Africa’s growing middle class—expected to spend over $400 million daily—we establish a trusted supply value chain, bridging the gap between lower and higher socio-economic classes.
-            </p>
-        </div>
-        <div class="about-column">
-            <p>
-                At the heart of GigEfx are our core values: accountability, integrity, and determination. Our innovation process is fueled by customer insights, allowing us to develop high-impact, inclusive, and cost-effective solutions. One of our pioneering ventures, Rapid Forge Solutions, leverages AI/ML-powered on-demand 3D printing services, revolutionizing fabrication accessibility across industries.As we continue to push boundaries, our mission remains clear: to design, test, and develop revenue-generating business models that compete with the best in Africa and beyond.
-            </p>
+        <h1>ABOUT US</h1>
+        <div class="about-us">
+            <div class="about-column">
+                <p>At GigEfx, we believe that Africa’s greatest challenges present opportunities for transformative innovation. Rooted in a deep understanding of local needs, we develop purpose-driven solutions that align with the realities of Africa’s 1.35 billion people—80% of whom remain underserved. As a startup studio, we ideate, develop, fund, and support ventures that address hundreds of pain points through our best-in-class innovation funnels.</p>
+            </div>
+            <div class="about-column">
+                <p>Our approach is data-driven, empathetic, and collaborative, ensuring that every idea we generate is viable, desirable, and sustainable. We partner with like-minded entities, test innovations in real-world settings, and deploy solutions that can scale. By focusing on Africa’s growing middle class—expected to spend over $400 million daily—we establish a trusted supply value chain, bridging the gap between lower and higher socio-economic classes.</p>
+            </div>
+            <div class="about-column">
+                <p>At the heart of GigEfx are our core values: accountability, integrity, and determination. Our innovation process is fueled by customer insights, allowing us to develop high-impact, inclusive, and cost-effective solutions. One of our pioneering ventures, Rapid Forge Solutions, leverages AI/ML-powered on-demand 3D printing services, revolutionizing fabrication accessibility across industries.As we continue to push boundaries, our mission remains clear: to design, test, and develop revenue-generating business models that compete with the best in Africa and beyond.</p>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="sec2">
-    <h2>OUR PROJECTS</h2>
-    <div class="projects-row">
-        <p>BounceBack</p>
-        <p>Rapid Forge</p>
-        <p>SmartCart</p>
-        <p>SmartPrint</p>
+    <div class="sec2">
+        <h2>OUR PROJECTS</h2>
+        <div class="projects-row">
+            <p>BounceBack</p>
+            <p>Rapid Forge</p>
+            <p>SmartCart</p>
+            <p>SmartPrint</p>
+        </div>
+
+        <div class="bio-row">
+            <p>brief bio</p>
+            <p>brief bio</p>
+            <p>brief bio</p>
+            <p>brief bio</p>
+        </div>
     </div>
-</div>
 
-<footer class="sec3">
-    <h4>CONTACT US</h4>
-</footer>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("reveal");
-                    observer.unobserve(entry.target);
-                }
+    <div class="sec3">
+        <h3>OUR INVESTORS</h3>
+            <p>At GigEfx, innovation is only possible because of the unwavering belief and support from our investors. Your commitment empowers us to build purpose-driven ventures that directly address the needs of Africa’s underserved communities. We are deeply grateful for your partnership in funding four of our transformative projects </p>
+
+            <p>BounceBack – A resilience-focused solution helping individuals and businesses recover quickly from setbacks through tech-enabled recovery frameworks.<br>
+            Rapid Forge – Our AI/ML-powered on-demand 3D printing venture, revolutionizing accessible fabrication across industries.<br>
+            SmartCart – A next-generation retail experience designed to empower vendors and consumers through mobile-first, data-driven commerce tools.<br>
+            SmartPrint – An affordable and decentralized smart printing service bringing on-demand document and creative printing solutions to underserved communities.</p>
+
+            <p>These ventures are more than just ideas — they are tangible steps toward economic inclusion, scalability, and innovation. With your investment, we are turning vision into reality and bringing sustainable impact to millions.From all of us at GigEfx, thank you. Your trust fuels our determination, your support accelerates our mission, and your partnership makes everything possible. We are honored to have you with us on this journey.</p>
+
+            <p> With gratitude,</p>
+            <p> The GigEfx Team </p>
+
+        </div>
+    </div>
+
+
+    <div class="sec4">
+        <h4>CONTACT US</h4>
+        <div class="section-box">
+            <p>We’d love to hear from you! Reach out to us at <a href="mailto:hello@gigefx.com">hello@gigefx.com</a> or follow us on our socials to stay updated on our projects.</p>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("reveal");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll(".sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h3, .sec3 p, .sec4 h4").forEach(el => {
+                observer.observe(el);
             });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll(".sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h4").forEach(el => {
-            observer.observe(el);
         });
-    });
 
-    const menuButton = document.getElementById("menu-button");
-    const sidebar = document.getElementById("sidebar");
-    const closeSidebar = document.getElementById("close-sidebar");
+        const menuButton = document.getElementById("menu-button");
+        const sidebar = document.getElementById("sidebar");
+        const closeSidebar = document.getElementById("close-sidebar");
 
-    menuButton.addEventListener("click", () => sidebar.classList.toggle("open"));
-    closeSidebar.addEventListener("click", () => sidebar.classList.remove("open"));
+        menuButton.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
 
-    document.addEventListener("click", function (event) {
-        if (!sidebar.contains(event.target) && event.target !== menuButton) {
+        closeSidebar.addEventListener("click", function () {
             sidebar.classList.remove("open");
-        }
-    });
-</script>
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!sidebar.contains(event.target) && event.target !== menuButton) {
+                sidebar.classList.remove("open");
+            }
+        });
+    </script>
+</body>
+</html>
