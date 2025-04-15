@@ -1,3 +1,42 @@
+<!-- VOCAB/ FUNCTIONS/ INFO
+  head:
+    The <head> section contains meta information about the webpage — this info is not shown on the page itself.
+    It typically includes <meta> tags, the <title>, CSS <style>, JavaScript <script>, and links to stylesheets or fonts.
+
+  meta:
+    <meta> tags provide metadata such as character encoding, viewport settings for responsive design, and SEO descriptions.
+    They help browsers and search engines understand the page but do not render anything visually.
+
+  style:
+    The <style> tag is where CSS is written directly in the HTML file.
+    CSS controls how elements look — their size, color, position, animation, etc.
+
+  body:
+    The <body> tag contains all the visible content of the webpage — what users see in the browser.
+    This includes headers, paragraphs, images, sections, and scripts.
+
+  hero:
+    "hero" is not a standard HTML element — it's usually a class name (e.g., <div class="hero">).
+    It refers to a large banner or section at the top of a webpage, often with a background image and welcome message.
+
+  content:
+    Also a class name, not a tag. Used to wrap inner content like text or headings.
+    Helps with layout and styling through CSS.
+
+  media:
+    Could refer to media queries in CSS (for responsive design), or be used as a class name for sections with images/videos.
+    Not a default tag in HTML.
+
+  div:
+    <div> is a generic container tag. Used to group content together for styling or scripting purposes.
+    Think of it as a flexible box to structure the page.
+
+  script:
+    The <script> tag is used to add JavaScript to the page.
+    JavaScript enables interactivity — like dropdown menus, sliders, animations, and more.
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +44,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GigEfx Labs Code - Future</title>
     <style>
+
+        /* resetting default margins and paddings*/
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+/* general body styling */
+/* this works the background animation */
         body {
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             overflow: auto;
@@ -23,6 +66,7 @@
             background-size: 400% 400%;
             background-attachment: fixed;
         }
+/* background animation keyframes */
 
         @keyframes gradient {
             0% { background-position: 0% 50%; }
@@ -30,6 +74,7 @@
             100% { background-position: 0% 50%; }
         }
 
+/* background styling, creates the wave effect */
         .wave {
             background: rgba(255, 255, 255, 0.25);
             border-radius: 1000% 1000% 0 0;
@@ -43,7 +88,7 @@
             left: 0;
             z-index: -1;
         }
-
+/* 3 waves working in animation, specifying each wave's path/ direction */
         .wave:nth-of-type(2) {
             bottom: -1.25em;
             animation: wave 18s linear reverse infinite;
@@ -55,6 +100,7 @@
             opacity: 0.9;
         }
 
+/* wave animation keyframes, separate from previous keyframes */
         @keyframes wave {
             2% { transform: translateX(1); }
             25% { transform: translateX(-25%); }
@@ -63,6 +109,8 @@
             100% { transform: translateX(1); }
         }
 
+/* inserts image in upper left hand corner */
+/* hero: */ 
         .hero {
             height: 100vh;
             background: url(./Downloads/RapidForgeSolutions_.jpg) center/cover no-repeat;
@@ -75,6 +123,7 @@
             font-size: 2rem;
         }
 
+/* top navigation bar */
         nav {
             position: absolute;
             top: 0;
@@ -83,14 +132,15 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
-            background: rgba(0, 0, 0, 0.5);
+            background: #FFFFFF;
             border-bottom: 2px solid #547378;
         }
 
-        .logo {
+        .logo { /* sizing for picture in corner */
             width: 150px;
         }
 
+/* creates "menu button" */
         nav button {
             padding: 10px 20px;
             background: rgb(114, 166, 167);
@@ -100,11 +150,13 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-
+/* this makes the "menu" button shrink when the user hovers over it */ 
         nav button:hover {
             transform: scale(0.8);
         }
 
+
+/* menu taskbar created */
         .sidebar {
             position: fixed;
             top: 0;
@@ -147,6 +199,7 @@
             cursor: pointer;
         }
 
+/* hero content positioning */ 
         .content {
             position: absolute;
             top: 35%;
@@ -154,6 +207,7 @@
             color: white;
         }
 
+/* styling for "Hello, welcome..." */
         .hero h1.hero-heading {
             font-size: 4rem;
             font-family: Helvetica, sans-serif;
@@ -163,7 +217,10 @@
             text-align:left;
             margin-right:90px;
         }
+/* span creates a break in the header to start a new line*/ 
 
+/*Hello, (line 1)
+  Welcome to Gigefx" (line 2)*/
         .hero-heading span {
           line-height: 0.2;
           margin-bottom:0;
@@ -177,7 +234,7 @@
         align-self: flex-start;
         }
 
-
+/* section styling for "About", "Projects", "Investors", "Contact" */
         .sec1, .sec2, .sec3, .sec4 {
             width: 100%;
             min-height: 100vh;
@@ -190,12 +247,13 @@
             font-family: 'MS sans-serif', sans-serif;
         }
 
+/* sets the size of font and distance across the screen*/
         .sec1 h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
 
         }
-
+/* creates horizontal row to place project names (almost like a grid) */
         .sec2 .projects-row {
             display: flex;
             flex-direction: row;
@@ -204,12 +262,13 @@
             justify-content: center;
         }
 
+/* styling font */
         .sec2 .projects-row p {
             font-size: 1.8rem;
             padding: 10px 20px;
             border-radius: 8px;
         }
-
+/* description/ bio for each project*/
         .sec2 .bio-row {
             display: flex;
             flex-direction: row;
@@ -229,6 +288,7 @@
             margin-bottom: 20px;
         }
 
+/* sets the size of font and distance across the screen*/
         .sec2 p {
             font-size: 1.3rem;
             margin-bottom: 20px;
@@ -266,17 +326,19 @@
             margin-bottom: 15px;
         }
 
+/* sets scroll animation for each section,  */
         .sec1 h1, .sec1 p, .sec2 h2, .sec2 p, .sec3 h3, .sec4 h4 {
             opacity: 0;
             transform: translateY(100px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-
+/* reveals class when user scrolls*/
         .reveal {
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
 
+/* create colums for "about us" section for organization purposes*/
         .about-us {
             display: flex;
             justify-content: space-between;
@@ -311,6 +373,7 @@
 </head>
 <body>
 
+    <!-- hero section -->
     <div class="hero">
         <nav>
             <img src="gigfixlaboratories.png" class="logo" alt="GigEfx Laboratories Logo">
@@ -318,7 +381,7 @@
                 <button id="menu-button">More</button>
             </div>
         </nav>
-
+        <!-- sidebar menu, hyper link names -->
         <div id="sidebar" class="sidebar">
             <span class="close-btn" id="close-sidebar">&times;</span>
             <ul>
@@ -334,15 +397,19 @@
             </ul>
         </div>
 
+        <!-- Hero Heading -->
         <h1 class="hero-heading">
           <span class= "line1">HELLO, </span><br>
           <span class= "line2">WELCOME TO GIGEFX!</span></h1>
     </div>
 
+
+    <!-- ABOUT US SECTION -->
     <div class="sec1">
         <h1>ABOUT US</h1>
         <div class="about-us">
             <div class="about-column">
+                <!-- Three-column layout for about content -->
                 <p>At GigEfx, we believe that Africa’s greatest challenges present opportunities for transformative innovation. Rooted in a deep understanding of local needs, we develop purpose-driven solutions that align with the realities of Africa’s 1.35 billion people—80% of whom remain underserved. As a startup studio, we ideate, develop, fund, and support ventures that address hundreds of pain points through our best-in-class innovation funnels.</p>
             </div>
             <div class="about-column">
@@ -354,6 +421,7 @@
         </div>
     </div>
 
+    <!-- PROJECTS SECTION -->
     <div class="sec2">
         <h2>OUR PROJECTS</h2>
         <div class="projects-row">
@@ -372,6 +440,7 @@
     </div>
 
 
+    <!-- INVESTORS SECTION -->
     <div class="sec3">
         <h3>OUR INVESTORS</h3>
             <p>At GigEfx, innovation is only possible because of the unwavering belief and support from our investors. Your commitment empowers us to build purpose-driven ventures that directly address the needs of Africa’s underserved communities. We are deeply grateful for your partnership in funding four of our transformative projects </p>
@@ -389,7 +458,7 @@
         </div>
     </div>
 
-
+    <!-- CONTACT SECTION -->
     <div class="sec4">
         <h4>CONTACT US</h4>
         <div class="section-box">
@@ -398,7 +467,9 @@
     </div>
 
 
+    <!-- javascript section -->
     <script>
+        // Reveal animations on scroll using Intersection Observer
         document.addEventListener("DOMContentLoaded", function () {
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -414,6 +485,7 @@
             });
         });
 
+        // Sidebar menu toggle logic
         const menuButton = document.getElementById("menu-button");
         const sidebar = document.getElementById("sidebar");
         const closeSidebar = document.getElementById("close-sidebar");
@@ -426,6 +498,7 @@
             sidebar.classList.remove("open");
         });
 
+        // Close sidebar when clicking outside of it
         document.addEventListener("click", function (event) {
             if (!sidebar.contains(event.target) && event.target !== menuButton) {
                 sidebar.classList.remove("open");
