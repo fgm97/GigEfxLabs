@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BounceBack | Financial Resilience Platform</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #2c3e50;
+    }
+
+    /* Fade-in animation keyframes */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    header {
+      background-color: #004d40;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      opacity: 0; /* for animation start */
+    }
+
+    header.fade-in {
+      animation-delay: 0.6s;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    .caption {
+      font-size: 1.1rem;
+      margin-top: 10px;
+      color: #c8e6c9;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      opacity: 0; /* for animation start */
+    }
+
+    main.fade-in {
+      animation-delay: 1.2s;
+    }
+
+    section {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin: 50px 0 20px;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 25px;
+      background-color: #00796b;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #00695c;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="fade-in">
+    <h1>BounceBack</h1>
+    <div class="caption">Helping people stay financially strong during tough economic times.</div>
+  </header>
+
+  <main class="fade-in">
+    <section>
+      <p>
+        BounceBack is a strategic financial management platform designed to shield clients from the negative impacts of economic downturns.
+        Priced at <strong>$100 per month</strong> and accessible online, it merges <em>edutainment</em> with household engagement to provide practical financial guidance.
+        The service utilizes customer testimonials to establish trust and showcase its effectiveness, positioning itself as a dependable solution
+        for navigating uncertain financial landscapes.
+      </p>
+
+      <a href="Gigefx Intro page2.html" class="button">Back to GIGEFX</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 BounceBack by GigEfx. All rights reserved.
+  </footer>
+
+  <script>
+    // Wait until the document is fully loaded before applying animations
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("header").classList.add("fade-in");
+      document.querySelector("main").classList.add("fade-in");
+    });
+  </script>
+
+</body>
+</html>
