@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style> /* CSS */
+			body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: auto;
+            background: linear-gradient(315deg,
+                rgba(30, 150, 90, 1) 3%, /*bright blue*/
+                rgba(60, 180, 180, 1) 38%, /*soft teal*/
+                rgba(0, 94, 255, 1) 68%, /*green*/
+                rgba(0, 160, 120, 1) 88%); /*teal*/
+
+            animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            background-attachment: fixed;
+        } 
+
+         @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+/* background styling, creates the wave effect */
+        .wave {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 1000% 1000% 0 0;
+            position: fixed;
+            width: 200%;
+            height: 12em;
+            animation: wave 10s -3s linear infinite;
+            transform: translate3d(0, 0, 0);
+            opacity: 0.8;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+/* 3 waves working in animation, specifying each wave's path/ direction */
+        .wave:nth-of-type(2) {
+            bottom: -1.25em;
+            animation: wave 18s linear reverse infinite;
+        }
+
+        .wave:nth-of-type(3) {
+            bottom: -2.5em;
+            animation: wave 20s -1s reverse infinite;
+            opacity: 0.9;
+        }
+
+/* wave animation keyframes, separate from previous keyframes */
+        @keyframes wave {
+            2% { transform: translateX(1); }
+            25% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            75% { transform: translateX(-25%); }
+            100% { transform: translateX(1); }
+        }
+
+        #home-button {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 14px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: none;       /* Removes background */
+            border: none;           /* Removes border */
+            cursor: pointer;
+            z-index: 1001;
+            text-decoration: underline;
+
+        }
+
+        #home-button:hover {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+
+        #menu-button {
+    		position: absolute;
+    		top: 20px;
+    		right: 20px;
+    		padding: 14px 28px;
+    		font-size: 18px;
+    		font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+    		color: white;
+    		border: none;
+    		border-radius: 10px;
+    		cursor: pointer;
+    		z-index: 1001;
+    		transition: transform 0.2s ease, background 0.3s ease;
+		}
+
+        #menu-button:hover {
+    		transform: scale(1.05);
+    		background: linear-gradient(to right, #00bfff, #00e699);
+		}
+
+		#menu-button.hidden {
+    		display: none;
+		}
+
+/* menu taskbar created */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .sidebar.open {
+            right: 0;
+            display: block;
+        }
+
+        .sidebar ul {
+            margin-top: 50px;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            font-size: 25px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+
+/* section work */
+  		.sec1 {
+            width: 100%;
+            min-height: 100vh;
+            color: white;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: 'MS sans-serif', sans-serif;
+        }
+
+        .hero h1.hero-heading {
+            font-size: 4rem;
+            font-family: Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        section.content, section.subscriptions {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            width: 80%;
+            color: white;
+            font-family: 'MS sans-serif', sans-serif;
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        section.content{
+            position: relative;
+            left: -220px;      /* Move to the left */
+            top: -30px;       /* Move up */
+            max-width: 700px;
+        }
+
+        section.content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+
+        }
+
+        section.content p {
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+
+
+        /* subscriptions */
+        section.subscriptions{
+            position: relative;
+            right: -200px;     /* Move to the right */
+            top: 60px;        /* Move down */
+            max-width: 850px;
+        }
+
+        section.subscriptions h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+		}
+
+		section.subscriptions p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            background: none;
+            text-align:left;
+		}
+
+        .subscription-table {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 850px;
+            color: white;
+            text-align: center;
+            font-family: 'MS sans-serif', sans-serif;
+            top: 120px;        /* Move down */
+
+        }
+
+        .subscription-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+
+        }
+
+        .subscription-table th, .subscription-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .subscription-table th {
+            font-size: 1.2rem;
+            color: #00ffd9;
+            text-transform: uppercase;
+        }
+
+        .subscription-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+		.subscribe-btn {
+    		margin-top: 1.5rem;
+    		padding: 0.75rem 2rem;
+    		font-size: 1.2rem;
+    		color: white;
+    		background-color: rgba(255, 255, 255, 0.2);
+    		border: none;
+    		border-radius: 10px;
+    		cursor: pointer;
+    		transition: background-color 0.3s ease, transform 0.2s ease;
+		}
+
+		.subscribe-btn:hover {
+    		background-color: rgb(0, 230, 25);
+    		transform: scale(1.05);
+		}
+
+
+        </style>
+	</head>
+	<!-- HTML -->
+	<body>
+		<section class="sec1">
+			<div class="hero">
+				<h1 class="hero-heading">SmartPrint</h1>
+				<!-- Fixed Menu Button Wrapper -->
+    			<div>
+      				<button id="menu-button">Menu</button>
+                    <div> 
+                        <button id="home-button" onclick="location.href='Gigefx Intro Page2.html'">Home</button>
+                    </div>
+
+    			</div>
+  			</div>
+		</section>
+
+
+<!-- Sidebar Menu -->
+<div id="sidebar" class="sidebar">
+	<span class="close-btn" id="close-sidebar">&times;</span>
+  	<ul>
+    	<li><a href="#">Products</a></li>
+    	<li><a href="#">Order Status</a></li>
+    	<li><a href="#">BounceBack</a></li>
+    	<li><a href="#">RapidForge</a></li>
+    	<li><a href="#">SmartCart</a></li>
+    	<li><a href="SmartPrint.html">SmartPrint</a></li>
+    	<li><a href="#">About</a></li>
+    	<li><a href="#">Contact</a></li>
+  	</ul>
+</div>
+
+		</section>
+		<section class="content">
+			<h2>Streamline your 3D printing workflow with AI-powered SmartPrint</h2>
+			<p>SmartPrint is an AI and machine learning-driven platform that enhances 3D printing processes by eliminating unnecessary iterations and guesswork. Developed specifically for the needs of 3D printing businesses, SmartPrint streamlines operations with a user-friendly, subscription-based online service. We combine educational entertainment content with genuine customer testimonials to foster trust and demonstrate real value. SmartPrint positions itself as the essential workflow tool for contemporary fabrication enterprises. </p>
+    </section>
+
+    <section class="subscription-table">
+        <h3>Choose Your SmartPrint Plan</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Price</th>
+                    <th>Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Starter</td>
+                    <td>$6/month</td>
+                    <td>Basic AI automation, up to 3 projects, community support</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- NEW SECTION START -->
+		<section class="subscriptions">
+    		<h3>Subscribe to SmartPrint – Smarter 3D Printing Starts Here</h3>
+    		<p> Why Subscribe?
+<br>Streamline Your Workflow: Automate and optimize complex 3D printing processes with intelligent algorithms.
+<br>Reduce Waste & Reprints: Cut costs by eliminating trial-and-error printing.
+<br>Designed for You: Tailored features made specifically for 3D printing professionals and fabrication studios.
+<br>Authentic Impact: Learn from real customer success stories and educational content that makes mastering SmartPrint simple and enjoyable.
+<br>Marketing-Backed Trust: Our cross-channel approach ensures you’re joining a growing, trusted network of makers and innovators.
+<br>Whether you’re scaling up or just starting out, SmartPrint is your all-in-one solution for smarter, faster, and more profitable 3D printing.
+
+Start your subscription today — and let SmartPrint do the heavy lifting.</p>
+    		<button class="subscribe-btn">Join Now</button>
+
+	</section>
+
+
+<!-- NEW SECTION END -->
+
+    <!-- Waves -->
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+
+<script>
+	const menuButton = document.getElementById('menu-button');
+	const sidebar = document.getElementById('sidebar');
+	const closeBtn = document.getElementById('close-sidebar');
+
+	menuButton.addEventListener('click', () => {
+		sidebar.classList.add('open');
+		menuButton.classList.add('hidden'); // hide menu button
+	});
+
+  	closeBtn.addEventListener('click', () => {
+    	sidebar.classList.remove('open');
+    	menuButton.classList.remove('hidden');
+    });
+</script>
+
+</body>
+</html>
