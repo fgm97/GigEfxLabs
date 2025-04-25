@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GigEfx Labs | Welcome</title>
+  <style>
+    /* Variables & Resets */
+    :root {
+      --clr-dark: #0c121f;
+      --clr-darker: #111827;
+      --clr-accent: #2dd4bf;
+      --clr-light: #e5e7eb;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+      --transition: 0.4s ease;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(160deg, var(--clr-dark), var(--clr-darker));
+      color: var(--clr-light);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Sticky Nav */
+    .sticky-bar { position: sticky; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; backdrop-filter: blur(12px); background: rgba(15,18,30,0.6); box-shadow: var(--shadow-sm); z-index:1000; transition: padding var(--transition); }
+    .sticky-bar.scrolled { padding:0.6rem 2rem; }
+    .brand { font-size:1.5rem; font-weight:700; color:#fff; }
+    .cta, .btn { font-weight:600; cursor:pointer; background: var(--clr-accent); padding:0.6rem 1.2rem; border:none; border-radius:0.4rem; box-shadow: var(--shadow-md); transition: transform var(--transition), box-shadow var(--transition); color:#111827; }
+    .cta:hover, .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md), var(--shadow-sm); }
+
+    /* Menu */
+    #menu-toggle { background:none; border:none; font-size:1.3rem; color:#fff; cursor:pointer; transition: transform var(--transition); }
+    #menu-toggle.active { transform: rotate(90deg); }
+    .menu-items { position:absolute; top:100%; right:2rem; margin-top:0.5rem; background: rgba(15,18,30,0.95); border-radius:0.6rem; list-style:none; padding:0.5rem 0; transform: scaleY(0); transform-origin: top; transition: transform var(--transition); box-shadow: var(--shadow-md); }
+    .menu-items.active { transform: scaleY(1); }
+    .menu-items li + li { margin-top:0.2rem; }
+    .menu-items a { display:block; padding:0.8rem 1.6rem; color: var(--clr-light); font-weight:600; position:relative; }
+    .menu-items a::after { content:''; position:absolute; left:50%; bottom:0; width:0; height:2px; background: var(--clr-accent); transition: width 0.3s ease, left 0.3s ease; }
+    .menu-items a:hover::after { width:100%; left:0; }
+
+    /* Header & Hero */
+    header { position:relative; height:80vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; overflow:hidden; }
+    header::before { content:''; position:absolute; top:-20%; left:-20%; width:140%; height:140%; background: radial-gradient(circle at center, var(--clr-accent), transparent 70%); opacity:0.3; animation: rotateBg 20s linear infinite; }
+    @keyframes rotateBg { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .logo { width:160px; margin-bottom:1rem; transform: translateY(-20px) scale(0.7); opacity:0; animation: pop 1s cubic-bezier(0.68,-0.55,0.265,1.55) 0.3s forwards; }
+    @keyframes pop { 0% { transform: scale(0.5) translateY(-20px); opacity:0; } 70% { transform: scale(1.1) translateY(0); opacity:1; } 100% { transform: scale(1) translateY(0); } }
+    h1 { font-size:3rem; color:#fff; opacity:0; animation: fadeInUp 1s ease-out 0.6s forwards; }
+    p.hero-text { max-width:600px; color:#ddd; opacity:0; animation: fadeInUp 1s ease-out 0.9s forwards; }
+    @keyframes fadeInUp { 0% { transform: translateY(20px); opacity:0; } 100% { transform: translateY(0); opacity:1; } }
+
+    /* Sections & Cards */
+    section { padding:6rem 2rem; opacity:0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    section.visible { opacity:1; transform: translateY(0); }
+    h2 { font-size:2.2rem; margin-bottom:1.5rem; position:relative; }
+    h2::after { content:''; position:absolute; left:50%; bottom:-6px; width:60px; height:3px; background: var(--clr-accent); transform: translateX(-50%); border-radius:2px; }
+    .container { max-width:900px; margin:0 auto; }
+    .card { background: rgba(255,255,255,0.05); padding:2rem; border-radius:0.8rem; box-shadow: var(--shadow-sm); margin-bottom:2rem; transition: transform var(--transition), box-shadow var(--transition); }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .link-card { display:block; }
+
+    /* Contact Form Styles */
+    .contact-form { display:flex; flex-direction:column; background: rgba(255,255,255,0.05); padding:2rem; border-radius:0.8rem; box-shadow: var(--shadow-sm); max-width:600px; margin:2rem auto 0; }
+    .contact-form label { margin-bottom:0.4rem; font-size:0.9rem; }
+    .contact-form input, .contact-form textarea { background: rgba(255,255,255,0.1); border: none; border-radius:0.4rem; padding:0.8rem; color: var(--clr-light); margin-bottom:1rem; resize: vertical; font-size:1rem; }
+    .contact-form textarea { min-height:120px; }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+  <div class="sticky-bar" id="navbar">
+    <div class="brand">GigEfx Labs</div>
+    <div class="cta">📅 Book a Meeting</div>
+    <button id="menu-toggle">☰</button>
+    <ul id="menu" class="menu-items">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#investors">Investors</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <header>
+    <img src="html files\Assets\logo.png" alt="Gigefx Logo" class="logo">
+    <h1>Welcome to GigEfx Labs</h1>
+    <p class="hero-text">Powered by local insight, we connect Africans with conscientious purpose-driven solutions, using innovation pipelines that are the best in their class.</p>
+  </header>
+
+  <section id="about" class="container">
+    <h2>About Us</h2>
+    <div class="card"><p>At GigEfx, we believe that Africa’s greatest challenges present opportunities for transformative innovation. Rooted in a deep understanding of local needs, we develop purpose-driven solutions that align with the realities of Africa’s 1.35 billion people—80% of whom remain underserved. As a startup studio, we ideate, develop, fund, and support ventures that address hundreds of pain points through our best-in-class innovation funnels.</p></div>
+    <div class="card"><p>Our approach is data-driven, empathetic, and collaborative, ensuring that every idea we generate is viable, desirable, and sustainable. We partner with like-minded entities, test innovations in real-world settings, and deploy solutions that can scale. By focusing on Africa’s growing middle class—expected to spend over $400 million daily—we establish a trusted supply value chain, bridging the gap between lower and higher socio-economic classes.</p></div>
+    <div class="card"><p>At the heart of GigEfx are our core values: accountability, integrity, and determination. Our innovation process is fueled by customer insights, allowing us to develop high-impact, inclusive, and cost-effective solutions. One of our pioneering ventures, Rapid Forge Solutions, leverages AI/ML-powered on-demand 3D printing services, revolutionizing fabrication accessibility across industries. As we continue to push boundaries, our mission remains clear: to design, test, and develop revenue-generating business models that compete with the best in Africa and beyond.</p></div>
+  </section>
+
+  <section id="projects" class="container">
+    <h2>Projects</h2>
+    <a href="smartcart.html" class="card link-card"><h3>SmartCart</h3><p>Afford users shopping intelligence for informed decision making when buying products.</p></a>
+    <a href="rapidforge.html" class="card link-card"><h3>Rapid Forge Solutions</h3><p>AI/ML enabled on-demand 3D printing services prepared to address fabrication needs of customers.</p></a>
+    <a href="smartprint.html" class="card link-card"><h3>SmartPrint</h3><p>AI/ML optimized workflows to streamline 3D printing processes and reduce iteration risk.</p></a>
+    <a href="bounceback.html" class="card link-card"><h3>BounceBack</h3><p>A wealth management app that helps at-risk clients prepare for economic downturns.</p></a>
+  </section>
+
+  <section id="investors" class="container">
+    <h2>Our Investors</h2>
+    <div class="card"><p>At GigEfx, innovation is only possible because of the unwavering belief and support from our investors. Your commitment empowers us to build purpose-driven ventures that directly address the needs of Africa’s underserved communities. We are deeply grateful for your partnership in funding four of our transformative projects.</p></div>
+    <div class="card"><p>These ventures are more than just ideas — they are tangible steps toward economic inclusion, scalability, and innovation. With your investment, we are turning vision into reality and bringing sustainable impact to millions. From all of us at GigEfx, thank you. Your trust fuels our determination, your support accelerates our mission, and your partnership makes everything possible. We are honored to have you with us on this journey.</p></div>
+    <div class="card"><p>With gratitude,<br>The GigEfx Team</p></div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2>Contact Us</h2>
+    <div class="card">
+      <ul>
+        <li>🌐 <a href="https://www.gigefx.io" target="_blank">www.gigefx.io</a></li>
+        <li>✉️ <a href="mailto:info@gigefx.io">info@gigefx.io</a></li>
+        <li>⏰ Hours: 06:00 – 16:00 PM</li>
+      </ul>
+      <a href="#inquiry" class="btn">Send an Inquiry</a>
+    </div>
+  </section>
+
+  <section id="inquiry" class="container">
+    <h2>Send an Inquiry</h2>
+    <form class="contact-form" action="mailto:info@gigefx.io" method="post" enctype="text/plain">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="Name" placeholder="Your Name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="Email" placeholder="Your Email" required>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="Subject" placeholder="Subject">
+      <label for="message">Message</label>
+      <textarea id="message" name="Message" placeholder="Your message..." required></textarea>
+      <button type="submit" class="btn">Submit Inquiry</button>
+    </form>
+  </section>
+
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY>50));
+    const toggle=document.getElementById('menu-toggle'), menu=document.getElementById('menu');
+    toggle.addEventListener('click',e=>{e.stopPropagation(); toggle.classList.toggle('active'); menu.classList.toggle('active');});
+    document.addEventListener('click',e=>{ if(!toggle.contains(e.target)&&!menu.contains(e.target)){ toggle.classList.remove('active'); menu.classList.remove('active'); }});
+    document.querySelectorAll('section').forEach(sec=> new IntersectionObserver(entries=> entries.forEach(ent=>ent.isIntersecting && ent.target.classList.add('visible')), {threshold:0.2}).observe(sec));
+  </script>
+</body>
+</html>
