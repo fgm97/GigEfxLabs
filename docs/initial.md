@@ -4,15 +4,13 @@ These pages were part of the earlier phase of GigEfx Labs’ web architecture an
 
 ---
 
-## 1. `bounceback.html`
-**Purpose:** A dedicated landing page for the BounceBack financial management platform.  
+## 1. `Ptarium Intro Page.html`
+**Purpose:** Initially made and planned to become a streamlined weborder process for Custom 3D parts. It was then amended to create what is now the GigEfx home page. It became rough conceptual layout for showcasing multiple services in one place.
 **Key Features:**
-- Animated gradient background with layered wave effects.
-- A hero section with fade-in title and caption.
-- Responsive main content block outlining the product and pricing.
-- Navigation and sidebar menu with project links.
-- Footer and interactive sidebar toggle script.
-
+- Visually overlaid headers (`h1` to `h7`) showing service titles.
+- Static content blocks with layered positioning.
+- Navigation with sidebar.
+- Focused on experimentation with layout and header styling.
 ---
 
 ## 2. `Gigefx Intro page.html`
@@ -36,13 +34,15 @@ These pages were part of the earlier phase of GigEfx Labs’ web architecture an
 
 ---
 
-## 4. `Ptarium Intro Page.html`
-**Purpose:** A rough conceptual layout for showcasing multiple services in one place.  
+## 4. `bounceback.html`
+**Purpose:** A dedicated landing page for the BounceBack financial management platform.  
 **Key Features:**
-- Visually overlaid headers (`h1` to `h7`) showing service titles.
-- Static content blocks with layered positioning.
-- Navigation with sidebar.
-- Focused on experimentation with layout and header styling.
+- Animated gradient background with layered wave effects.
+- A hero section with fade-in title and caption.
+- Responsive main content block outlining the product and pricing.
+- Navigation and sidebar menu with project links.
+- Footer and interactive sidebar toggle script.
+
 
 ---
 
