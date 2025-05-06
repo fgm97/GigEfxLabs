@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscribe | GigEfx Labs</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes floatBg {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+    .step-label {
+      margin: 1.2rem 0 0.4rem;
+      font-weight: 600;
+      color: var(--clr-accent);
+    }
+  </style>
+</head>
+<body>
+  <div style="
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--clr-accent), transparent 70%);
+    opacity: 0.1;
+    filter: blur(80px);
+    z-index: -1;
+    animation: floatBg 20s linear infinite alternate;
+  "></div>
+
+  <!-- Home Button -->
+  <a href="GigEfxLabs.html" class="btn" style="position: absolute; top: 1.5rem; left: 1.5rem;">← Home</a>
+
+  <!-- Subscription Form -->
+  <section class="container visible" style="max-width: 700px;">
+    <div class="card contact-form" style="padding: 3rem;">
+      <div style="width: 60px; height: 4px; background: var(--clr-accent); margin: 0 auto 1rem; border-radius: 2px;"></div>
+      <h2 style="text-align: center; margin-bottom: 0.5rem;">Subscribe to a Service</h2>
+      <p style="text-align: center; margin-bottom: 2rem; color: var(--clr-light);">
+        Get started with one of our services by filling out the form below.
+      </p>
+      <form action="mailto:subscribe@gigefx.io" method="post" enctype="text/plain">
+        <p class="step-label">Step 1: Your Info</p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="Name" placeholder="Your Name" required>
+
+        <br><label for="email">Email</label>
+        <input type="email" id="email" name="Email" placeholder="Your Email" required>
+
+        <p class="step-label">Step 2: Select a Service</p>
+        <label for="service">Choose a Service</label>
+        <select id="service" name="Service" required class="dropdown">
+          <option value="">-- Select a Project --</option>
+          <option value="SmartPrint - $6/month">SmartPrint - $6/month</option>
+          <option value="BounceBack - $100/month">BounceBack - $100/month</option>
+          <option value="SmartCart">SmartCart (Pricing Varies)</option>
+          <option value="RapidForge">RapidForge (Custom Pricing)</option>
+        </select>
+
+        <button type="submit" class="btn" style="width: 100%; margin-top: 1.5rem;">Submit Subscription</button>
+      </form>
+
+      <!-- Testimonial -->
+      <blockquote style="margin-top: 2rem; font-style: italic; color: #ccc; text-align: center;">
+        “SmartPrint helped cut our prototyping time in half.” – A satisfied user
+      </blockquote>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('section').forEach(sec =>
+      new IntersectionObserver(entries =>
+        entries.forEach(ent =>
+          ent.isIntersecting && ent.target.classList.add('visible')
+        ), { threshold: 0.2 }
+      ).observe(sec)
+    );
+  </script>
+</body>
+</html>

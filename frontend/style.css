@@ -271,31 +271,167 @@
     scroll-behavior: smooth;
   }
 
-  /* Projects dropdown effect */
+
+  /* animated dropdown */
   .toggle-header {
     cursor: pointer;
-    font-weight: bold;
+    padding-bottom: 0.5rem;
     position: relative;
   }
   
   .toggle-header::after {
     content: '▼';
     position: absolute;
-    right: 0;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     transition: transform 0.3s ease;
   }
   
   .project-toggle.active .toggle-header::after {
-    transform: rotate(-180deg);
+    transform: translateY(-50%) rotate(-180deg);
   }
   
   .toggle-content {
     max-height: 0;
+    opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
   }
   
   .project-toggle.active .toggle-content {
-    max-height: 500px; /* adjust as needed */
+    max-height: 800px;
+    opacity: 1;
+    padding-top: 1rem;
+  }
+
+  /* bounceback styling */
+  .project-theme-bounceback {
+    border-left: 6px solid #22d3ee;
+    background: rgba(34, 211, 238, 0.05);
+  }
+  
+  .project-theme-bounceback .project-title {
+    font-size: 1.6rem;
+    color: #22d3ee;
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+  
+  .project-theme-bounceback .project-caption {
+    text-align: center;
+    font-style: italic;
+    color: #b9f6ff;
+    margin-bottom: 1rem;
+  }
+  
+  .project-theme-bounceback .project-body p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+  }
+
+  /* SmartCart Syling */
+  .project-theme-smartcart {
+    border-left: 6px solid #34d399;
+    background: rgba(52, 211, 153, 0.05);
+  }
+  
+  .project-theme-smartcart .project-title {
+    font-size: 1.6rem;
+    color: #34d399;
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+  
+  .project-theme-smartcart .project-caption {
+    text-align: center;
+    font-style: italic;
+    color: #bbf7d0;
+    margin-bottom: 1rem;
+  }
+
+  .project-theme-smartcart .project-body p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+  }
+
+  /* SmartPrint Styling */
+  .project-theme-smartprint {
+    border-left: 6px solid #6366f1;
+    background: rgba(99, 102, 241, 0.05);
+  }
+  
+  .project-theme-smartprint .project-title {
+    font-size: 1.6rem;
+    color: #6366f1;
+    text-align: center;
+  }
+  
+  .project-theme-smartprint .project-caption {
+    text-align: center;
+    font-style: italic;
+    color: #c7d2fe;
+  }
+
+  .project-theme-smartprint .project-body p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+  }
+
+
+  /* RapidForge Styling */
+  .project-theme-rapidforge {
+    border-left: 6px solid #f59e0b;
+    background: rgba(245, 158, 11, 0.05);
+  }
+  
+  .project-theme-rapidforge .project-title {
+    font-size: 1.6rem;
+    color: #f59e0b;
+    text-align: center;
+  }
+  
+  .project-theme-rapidforge .project-caption {
+    text-align: center;
+    font-style: italic;
+    color: #fde68a;
+  }
+
+  .project-theme-rapidforge .project-body p {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--clr-accent);
+    color: #111827;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    margin: 0.3rem 0.2rem;
+  }
+
+  /* Title hover effects */
+  .project-title {
+    transition: transform 0.3s ease;
+  }
+  
+  .project-title:hover {
+    transform: scale(1.05);
+  }
+
+  /* dropdown menu */
+
+  select.dropdown {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.8rem;
+    color: var(--clr-light);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    appearance: none;
   }
   
