@@ -1,5 +1,6 @@
+![alt text](frontend/logo.png)
 
-# GigEfx Labs Webpage ![alt text](frontend/logo.png)
+# GigEfx Labs Webpage 
 
 This project is a modern, animated, and responsive introductory webpage for **GigEfx Labs**, a parent company showcasing innovative Africa-focused ventures. The page is designed to inform users about GigEfx’s mission, highlight its flagship projects, and allow visitors to subscribe to specific services.
 
