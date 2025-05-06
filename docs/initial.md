@@ -1,4 +1,4 @@
-# Documentation: Deprecated GigEfx Project Pages (Now in `N.I.S/` Folder)
+# Documentation: Not in use - GigEfx Project Pages (Now in `N.I.S/` Folder)
 
 These pages were part of the earlier phase of GigEfx Labs’ web architecture and branding direction. Each was designed to showcase a specific project or serve as a thematic homepage. The following describes their content and intended structure before being consolidated into the main GigEfxLabs experience.
 
