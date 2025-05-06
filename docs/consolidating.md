@@ -1,7 +1,7 @@
 # Consolidating External Project Links into the `GigEfxLabs` Page
 
 ## Objective
-The goal is to create a more seamless and centralized user experience. All previous project pages were separate with their own style and structer and was then consolidated into the `GigEfxLabs.html` page. The user can now access the information for each project in its respective section through animated, expandable cards without redirecting them to another page.
+The goal is to create a more seamless and centralized user experience. All previous project pages were separate with their own style and structure and was then consolidated into the `GigEfxLabs.html` page. The user can now access the information for each project in its respective section through animated, expandable cards without redirecting them to another page.
 ---
 
 ## Why This Change Was Made
