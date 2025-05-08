@@ -1,4 +1,3 @@
-![alt text](frontend/logo.png)
 
 # GigEfx Labs Webpage 
 
