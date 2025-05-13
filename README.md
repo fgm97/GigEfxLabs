@@ -122,3 +122,68 @@ For questions or suggestions, please contact:
 [www.gigefx.io](https://www.gigefx.io)
 
 ---
+
+# Installation & Start Instructions
+
+## 1.Download the Project Files
+
+Clone or download the repository containing the source code:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+```
+
+Or manually download and unzip the project folder.
+
+---
+
+## 2. Project Structure
+
+Ensure the following structure is preserved:
+
+```
+your-repo-name/
+└── frontend/
+    ├── GigEfxLabs.html
+    ├── Subscribe.html
+    ├── style.css
+    └── assets/
+        └── logo.png
+```
+
+---
+
+## 3. Running the Web Page
+
+### Option A: Run Locally
+
+You can run the webpage by simply opening either `GigEfxLabs.html` or `Subscribe.html` in any modern web browser (e.g., Chrome, Firefox, Edge).
+
+> No local server is needed, as this is a static site.
+
+### Option B: Use Live Server (Recommended for Development)
+
+If you're using Visual Studio Code, you can use the **Live Server** extension for a better development experience:
+
+1. Open the project folder (`frontend`) in VS Code.
+2. Install the **Live Server** extension if you haven't already.
+3. Right-click on `GigEfxLabs.html` and choose **"Open with Live Server"**.
+4. Your browser will automatically open the site and refresh on changes.
+
+---
+
+## 4. Hosting the Site (For Administrators)
+
+You can deploy the project using any static web hosting service such as:
+
+- GitHub Pages
+- Netlify
+- Vercel
+- Firebase Hosting
+
+### Example: GitHub Pages Deployment
+
+1. Push the contents of the `frontend` folder to a GitHub repository.
+2. Go to **Settings** → **Pages**.
+3. Under “Source,” select the `main` branch and `/frontend` folder as the root.
+4. GitHub Pages will generate a public URL for your site.
